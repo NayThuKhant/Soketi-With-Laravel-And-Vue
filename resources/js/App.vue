@@ -1,6 +1,15 @@
 <template>
     <div class="container">
         <div class="chat-container" ref="chatContainer">
+
+            <div class="command-container">
+                <p>Running the following command will push something to the websocket & you can see the result in this chat area</p>
+                <code>
+                    php artisan push:notification
+                </code>
+            </div>
+
+
             <div v-for="message in messages" class="chat-message-pill"
                  :class="{sender : message.sender === currentUserID, receiver : message.sender !== currentUserID}">
                 <span>{{ message.message }}</span>
@@ -28,6 +37,12 @@
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
+}
+
+.command-container{
+    font-size: small;
+    align-self: center;
+    text-align: center;
 }
 
 .chat-input {
@@ -153,3 +168,4 @@ export default {
     },
 }
 </script>
+
